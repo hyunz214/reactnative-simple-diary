@@ -1,15 +1,18 @@
 import React from "react";
-import { Text, View, Button } from 'react-native';
+import { Text } from 'react-native';
+import Container from '../components/Container';
+import Contents from '../components/Contents';
+import Button from '../components/Button';
+
 
 function Form({navigation}) {
     return (
-        <View>
-            <Text>
-                Form
-            </Text>
-            <Button 
-                title="목록으로" onPress={ () => navigation.goBack()}></Button>
-        </View>
+        <Container>
+            <Contents>
+                <Text> Form </Text>
+            </Contents>
+            <Button onPress={ () => navigation.goBack()}> 저장 </Button>
+        </Container>
     )
 
 }

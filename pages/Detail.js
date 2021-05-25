@@ -1,15 +1,16 @@
 import React from "react";
 import { Text, View, Button } from 'react-native';
+import Container from '../components/Container';
 
 function Detail({navigation}) {
     return (
-        <View>
+        <Container>
             <Text>
                 Detail
             </Text>
             <Button 
                 title="목록으로" onPress={ () => navigation.goBack()}></Button>
-        </View>
+        </Container>
     )
 
 }

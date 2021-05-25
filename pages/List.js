@@ -1,15 +1,19 @@
 import React from "react";
-import { Text, View, Button } from 'react-native';
+import { Text } from 'react-native';
+import Container from '../components/Container';
+import Contents from '../components/Contents';
+import Button from '../components/Button';
 
-function List({navigation}) {
+
+// 구조 분해 할당, Destructouring Assignment
+function List({ navigation }) {
     return (
-        <View>
-            <Text>
-                List
-            </Text>
-            <Button title="디테일 페이지로" onPress={ () => navigation.navigate("Detail")}></Button>
-            <Button title="작성 페이지로" onPress={ () => navigation.navigate("Form")}></Button>
-        </View>
+        <Container>
+            <Contents>
+                <Text>목록 표시</Text>
+            </Contents>
+            <Button onPress={() => navigation.navigate('Form')}>새 일기 작성</Button>
+        </Container>
     )
 }
 
