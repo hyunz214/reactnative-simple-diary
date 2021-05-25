@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View, Button } from 'react-native';
 
-function Form({navigation}) {
+function Detail({navigation}) {
     return (
         <View>
             <Text>
-                Form
+                Detail
             </Text>
             <Button 
                 title="목록으로" onPress={ () => navigation.goBack()}></Button>
@@ -14,4 +14,4 @@ function Form({navigation}) {
 
 }
 
-export default Form;
+export default Detail;
