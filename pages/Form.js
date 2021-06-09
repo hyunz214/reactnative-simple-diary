@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text } from 'react-native';
 import Container from '../components/Container';
 import Contents from '../components/Contents';
 import Button from '../components/Button';
 import styled from 'styled-components/native';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Label = styled.Text`
     font-size : 20px;
@@ -41,13 +41,20 @@ function Form({ navigation }) {
 
         list.push(
             {
-                data, text
+                date, text
             }
         );
 
         AsyncStorage.setItem('list', JSON.stringify(list));
+        navigation.goBack();
 
     }
+
+    useEffect(() => {
+        
+        console.log('로그:::::::::');
+
+    },[])
 
     return (
         <Container>

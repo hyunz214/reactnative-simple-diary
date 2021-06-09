@@ -3,11 +3,12 @@ import Container from '../components/Container';
 import Contents from '../components/Contents';
 import Button from '../components/Button';
 import styled from 'styled-components/native';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ListItem = styled.TouchableOpacity`
     width: 100%;
     padding: 12px 0;
+    
 `;
 
 const Label = styled.Text`
@@ -17,23 +18,30 @@ const Label = styled.Text`
 function List({ navigation }) {
     const [list, setList] = useState([]);
 
+    const load = async () => {
+        const date = await AsyncStorage.getItem('list');
+        if(data !== null){
+            setList (JSON.parse(data));
+        }
+    }
+
     useEffect(() => {
-        console.log('list:::::::::', list);
-        AsyncStorage.getItem('list')
-            .then(data => {
-                if (data !== null) {
-                    setList(JSON.parse(data))
-                }
-            })
-    }, [])
+        const unsubscribe = navigation.addListener('focus', () => {
+            load();
+        });
+
+        load();
+
+        return unsubscribe;
+    }, [navigation])
 
     return (
         <Container>
             <Contents>
-                {list.map((item) => {
+                {list.map((item, index) => {
                     return (
                         <ListItem
-                            key={item.date}
+                            key={index}
                             onPress={() => navigation.navigate('Detail')}>
                             <Label>{item.date}</Label>
                         </ListItem>
