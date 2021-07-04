@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
+import style from '../utils/styleUtils';
 
 const Contents = styled.ScrollView`
     flex : 1;
-    padding : 24px;
+    padding : 20px;
 
 `
 

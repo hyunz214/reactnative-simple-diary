@@ -8,29 +8,39 @@ const Text = styled.Text`
     font-size: 20px;
     line-height: 28px;
 `
+const DateWrapper = styled.View`
+    padding: 10px 0;
+    align-items : flex-end;
+`
+const DateText = styled.Text`
+    font-size: 14px;
+`
 
 function Detail({ navigation, route }) {
 
-    
-
-    const [text, setText] = useState('');
+    const [item, setItem] = useState('');
 
 
     useEffect(() => {
         AsyncStorage.getItem('list').then(data => {
             const list = JSON.parse(data);
+            
             const diary = list.find(element => element.date === route.params.item.date )
-            setText( diary.text )
+            setItem( diary );
         })
 
-        navigation.setOptions({ title : route.params.item.date });
+        navigation.setOptions({ title : route.params.item.title });
 
     }, [])
 
     return (
         <Container>
             <Contents>
-                <Text>{text}</Text>
+                <DateWrapper>
+                    <DateText>{item.date}</DateText>
+                </DateWrapper>
+                
+                <Text>{item.contents}</Text>
             </Contents>
         </Container>
     )

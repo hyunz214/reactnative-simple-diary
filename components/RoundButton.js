@@ -7,9 +7,10 @@ const Container = styled.TouchableOpacity`
     background : ${style.subPink};
     justify-content : center;
     align-items : center;
-    padding-top: 20px ;
-    padding-bottom: 40px;
-    
+    padding: 20px;
+    border-radius : 20px;
+    box-shadow: 0px 3px 3px ${style.darkPink};
+    margin-bottom : 20px;
 `
 
 const Label = styled.Text`
@@ -18,7 +19,7 @@ const Label = styled.Text`
     color : ${style.darkPink}
 `
 
-function Button(props) {
+function RoundButton(props) {
     return(
         <Container onPress={ props.onPress }>
             <Label>{props.children}</Label>
@@ -28,4 +29,4 @@ function Button(props) {
 
 }
 
-export default Button;
+export default RoundButton;
