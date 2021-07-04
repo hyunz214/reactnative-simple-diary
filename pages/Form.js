@@ -32,22 +32,19 @@ function Form({ navigation }) {
 
         let list = await AsyncStorage.getItem('list');
 
+        
         if (list === null) {
             list = [];
-        }
-        else {
+        } else {
             list = JSON.parse(list); //다시 json 형태로 바꿈 
         }
 
-        list.push(
-            {
-                date, text
-            }
-        );
+        console.log(list);
+
+        list.push({ date, text });
 
         AsyncStorage.setItem('list', JSON.stringify(list));
         navigation.goBack();
-
     }
 
     useEffect(() => {
@@ -55,6 +52,8 @@ function Form({ navigation }) {
         console.log('로그:::::::::');
 
     },[])
+
+
 
     return (
         <Container>

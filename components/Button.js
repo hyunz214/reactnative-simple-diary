@@ -3,10 +3,12 @@ import styled from 'styled-components/native';
 
 const Container = styled.TouchableOpacity`
     width: 100%;
-    height : 80px;
+    
     background : #000000;
     justify-content : center;
     align-items : center;
+    padding-top : 20px;
+    padding-bottom : 40px;
 `
 
 const Label = styled.Text`
